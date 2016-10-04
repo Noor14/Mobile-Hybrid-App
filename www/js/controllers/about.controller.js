@@ -1,8 +1,9 @@
-(function () {   angular.module('psqca')
-  .controller('aboutController', loginCtrl);
-  loginCtrl.$inject = ['$scope', '$state'];
+(function () {
+  angular.module('psqca')
+  .controller('aboutController', aboutCtrl);
+  aboutCtrl.$inject = ['$scope', '$state'];
 
-  function loginCtrl($scope, $state)
+  function aboutCtrl($scope, $state)
   {
 
 
