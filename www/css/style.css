@@ -1,0 +1,201 @@
+/* Empty. Add your own CSS if you like */
+
+.content{
+  background-image: url("../img/background.jpg");
+}
+
+.pane-bar{
+  background-color: #4cd964;
+  color : white;
+  font-size: 80%;
+
+
+}
+
+.card{
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0.2); !important;
+}
+
+.pane-header{
+  text-align: center;
+
+}
+
+.pane-footer{
+  line-height: 1;
+  font-size: 10px;
+  text-align: end;
+}
+
+.image{
+  position: absolute;
+  top:0px;
+}
+.Text{
+  padding : 0px;
+  margin : 0px;
+}
+p.text{
+  color: white;
+  margin: 6px 0px;
+}
+p.head{
+  padding: 5px 0px;
+}
+.card{
+  width:75%;
+  margin: 65px auto;
+
+}
+
+img#logo{
+  float:right;
+}
+#field-required{
+  width:130px;
+  max-width: 180px;
+  padding : 1px;
+  font-size: 12.5px;
+  color: #fff;
+  margin-top:25px;
+  text-align: center;
+  background-color: #4cd964;
+}
+div.inputs{
+  padding:12px;
+}
+button{
+  margin-top:15px !important;
+}
+
+#logo{
+  margin: 5%;
+
+}
+
+h4{
+  color : white;
+  font-style: italic;
+  text-align: center;
+}
+
+
+input{
+  height:20px !important;
+
+}
+.pane-footer{
+  padding:10px;
+}
+.inputdiv {
+  padding-top: 15px ;
+  padding-bottom: 15px ;
+
+}
+.button{
+  height: 36px !important;
+min-height: 30px !important;
+  line-height: 36px;
+  border-radius: 4px;
+}
+
+/*uska hai*/
+.card{
+  color : white;
+}
+
+.label-login{
+  padding: 0px; !important
+
+}
+.placeholder{
+  position: absolute;
+  left: -2px;
+  top:-2px;
+  background-color: #4cd964;
+  height: 23px;
+  padding: auto !important;
+
+  width: 60px;
+  color: white;
+  text-align: center;
+}
+.login-input{
+  padding-left: 60px !important;
+}
+
+.background-color{
+
+}
+.icon-clickable{
+  text-align: center;
+  border: 5px solid gray;
+  border-radius: 5px;
+  width : 70px;
+  margin: 0 auto;
+  height: 70px;
+  padding-top:10px;
+}
+
+.icon{
+
+  width : 100%;
+  padding: 5px;
+  font-size: 40px;
+
+}
+
+.row-margin{
+  margin-bottom: 0px;
+  margin-left:10px;
+}
+
+.icon-description{
+  position: relative;
+  text-align: center;
+  line-height: 1;
+  text-align: center;
+  padding: 12px;
+}
+.icon-clickable{
+  cursor:pointer;
+
+}
+h2{
+  color:white;
+  padding: 0 20px;
+
+}
+p.about{
+  text-align: justify;
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+
+a.fb{
+  color: #fff;
+}
+button.absolute{
+  position: absolute;
+margin-top: 30px !important;
+  margin-left: -41px;
+  width: 3em;
+  border: none;
+  border-radius: 2px;
+  background-color: #4cd964;
+  height: 2.5em;
+
+}
+
+
+.ion-key{
+
+  width: 100%;
+/* padding: 5px; */
+  font-size: 24px;
+  color: white;
+  transform: rotate(40deg);
+
+}
