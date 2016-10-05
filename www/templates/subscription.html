@@ -3,7 +3,7 @@
 
     <!-- A panel for all pages similar -->
     <div class = 'card'>
-      <button class="absolute" ion-button><i class="icon ion-key"></i></button>
+      <button class="absolute" ng-click="loginPage()" ion-button><i class="icon ion-key"></i></button>
 
       <div class = 'pane-bar pane-header'>
         <p class="head">Pakistan Standards & Quality Control Authority</p>
@@ -27,7 +27,7 @@
           </div>
 
         </div>
-        <form name="subscribeForm" ng-submit="subscribe(user)">
+        <form name="subscribeForm" ng-submit="subscribe()">
           <div class="inputs">
             <div class='list'>
               <p class='text'>Full Name</p>
@@ -57,7 +57,7 @@
             <div class='list'>
               <p class='text'>Company</p>
               <label class="item item-input">
-                <input type="text" ng-model="user.company" placeholder="Company" required>
+                <input type="text" ng-model="user.companyName" placeholder="Company" required>
               </label>
             </div>
 

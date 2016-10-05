@@ -25,20 +25,25 @@
           </div>
 
         </div>
-        <div class="inputs">
-
-          <div class = 'list' ng-repeat="field in fields">
-            <p class = 'text'>{{field}}</p>
-            <label class="item item-input">
-              <input type="text" placeholder="{{field}}">
-            </label>
+        <form name="loginForm" ng-submit="login()">
+          <div class="inputs">
+            <div class='list'>
+              <p class='text'>E-mail</p>
+              <label class="item item-input">
+                <input type="email" ng-model="user.email" placeholder="E-mail" required>
+              </label>
+            </div>
+            <div class='list'>
+              <p class='text'>Password</p>
+              <label class="item item-input">
+                <input type="password" ng-model="user.password" placeholder="Password" required>
+              </label>
+            </div>
+            <button class="button button-full button-balanced" ng-disabled="loginForm.$invalid">
+              Login
+            </button>
           </div>
-          <button ui-sref="home" class="button button-full button-balanced">
-           Login
-          </button>
-
-        </div>
-
+        </form>
       </div>
       <div class = 'pane-bar pane-footer'>
         <p class="Text">Copyrights 2016 by PSQCA<br>Design and Developed by Adarts Digital</p>

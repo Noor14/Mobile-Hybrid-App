@@ -1,28 +1,24 @@
 (function () {
   angular.module('psqca')
     .controller('SubscriptionController', subscriptionCtrl);
-  subscriptionCtrl.$inject = ['$scope', '$state','User'];
+  subscriptionCtrl.$inject = ['$scope', '$state','User','localStorageService'];
 
-  function subscriptionCtrl($scope, $state,User) {
-
-    $scope.subscribe = function(user){
-      console.log('user ', user);
-      User.subscribe(user).then(function(success){
-        console.log('success ', success);
+  function subscriptionCtrl($scope, $state, User, localStorageService) {
+    $scope.user = {};
+    $scope.subscribe = function(){
+      console.log('user ', $scope.user);
+      User.subscribe($scope.user).then(function(response){
+        $scope.user = {};
+        if(response.token){
+          localStorageService.set("token", response.token);
+          $state.go('login');
+        }
       },function(error){
         console.log('error',error);
       })
     };
-
-    /*$scope.user = {
-
-    };
-
-
-      User.subscribe(user).then(function(success){
-
-      },function(error){
-
-      })*/
+    $scope.loginPage = function(){
+      $state.go('login');
+    }
   }
 })();
