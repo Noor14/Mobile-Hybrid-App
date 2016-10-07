@@ -175,6 +175,7 @@ p.about{
 }
 
 a.fb{
+  cursor: pointer;
   color: #fff;
 }
 button.absolute{
@@ -223,4 +224,16 @@ select{
 }
 .bg input{
   color: #fff;
+}
+.popup{
+
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+.popup h3{
+  color: white;
+}
+
+.popup-body input{
+  padding:15px;
 }
