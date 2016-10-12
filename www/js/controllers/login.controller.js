@@ -1,16 +1,19 @@
 (function () {
   angular.module('psqca')
     .controller('LoginController', loginCtrl);
-  loginCtrl.$inject = ['$scope', '$state','Auth','$ionicPopup'];
+  loginCtrl.$inject = ['$scope', '$state','Auth','User','$ionicPopup','$ionicLoading'];
 
-  function loginCtrl($scope, $state, Auth, $ionicPopup) {
+  function loginCtrl($scope, $state, Auth, User ,$ionicPopup, $ionicLoading) {
+    $scope.user = {};
+    $scope.message = '';
     $scope.showPopup = function() {
       $scope.data = {};
 
       // An elaborate, custom popup
       var myPopup = $ionicPopup.show({
-        template: '<input type="email" ng-model="data.email" placeholder="Enter email">',
-        title: 'Enter Your email Address',
+        template: '<input type="email" ng-model="data.email" placeholder="Enter email"> ' + '<br/>' +
+                  '<input type="password" ng-model="data.newPassword" placeholder="Enter new password"> ',
+        title: 'Update password',
         scope: $scope,
         buttons: [
           { text: 'Cancel' },
@@ -28,21 +31,30 @@
           }
         ]
       });
-      myPopup.then(function(res) {
-        console.log('Tapped!', res);
+      myPopup.then(function() {
+        User.updatePassword($scope.data)
+          .then(function(response){
+            console.log('response ', response);
+
+          },function(error){
+            console.log('Error ', error);
+          });
+        //console.log('Tapped!', $scope.data);
       });
 
     };
-    $scope.user = {};
     $scope.login = function(){
-
+      $ionicLoading.show({template: '<ion-spinner icon="spiral"></ion-spinner>'});
       Auth.login($scope.user).then(function(response){
+        $ionicLoading.hide();
         $scope.user = {};
         if(response.token){
           $state.go('home');
         }
       },function(error){
-        console.log(error);
+        $ionicLoading.hide();
+        console.log('error ',error);
+        $scope.message = error.message;
       })
 
     }

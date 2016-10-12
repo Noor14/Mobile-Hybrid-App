@@ -28,6 +28,17 @@
             deferred.reject(error);
           });
         return deferred.promise;
+      },
+      updatePassword: function(data){
+        var deferred = $q.defer();
+        $http.put(BaseUrl+'users/updatePassword', data)
+          .success(function(response){
+            deferred.resolve(response);
+          })
+          .error(function(error){
+            deferred.reject(error);
+          });
+        return deferred.promise;
       }
 
 
