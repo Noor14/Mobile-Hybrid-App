@@ -7,7 +7,7 @@
 .pane-bar{
   background-color: #4cd964;
   color : white;
-  font-size: 80%;
+  font-size: 11px;
 
 
 }
@@ -28,10 +28,7 @@
   text-align: end;
 }
 
-.image{
-  position: absolute;
-  top:0px;
-}
+
 .Text{
   padding : 0px;
   margin : 0px;
@@ -44,7 +41,7 @@ p.head{
   padding: 5px 0px;
 }
 .card{
-  width:75%;
+  width:87%;
   margin: 65px auto;
 
 }
@@ -95,7 +92,7 @@ input{
 }
 .button{
   height: 36px !important;
-min-height: 30px !important;
+  min-height: 30px !important;
   line-height: 36px;
   border-radius: 4px;
 }
@@ -108,18 +105,6 @@ min-height: 30px !important;
 .label-login{
   padding: 0px; !important
 
-}
-.placeholder{
-  position: absolute;
-  left: -2px;
-  top:-2px;
-  background-color: #4cd964;
-  height: 23px;
-  padding: auto !important;
-
-  width: 60px;
-  color: white;
-  text-align: center;
 }
 .login-input{
   padding-left: 60px !important;
@@ -152,9 +137,6 @@ min-height: 30px !important;
 }
 
 .icon-description{
-  position: relative;
-  text-align: center;
-  line-height: 1;
   text-align: center;
   padding: 12px;
 }
@@ -179,22 +161,22 @@ a.fb{
   color: #fff;
 }
 button.absolute{
-  position: absolute;
-margin-top: 30px !important;
-  margin-left: -41px;
+  /*position: absolute;*/
+  /*margin-top: 30px !important;*/
+  /*margin-left: -41px;*/
   width: 3em;
   border: none;
   border-radius: 2px;
   background-color: #4cd964;
-  height: 2.5em;
+  /*height: 2.5em;*/
 
 }
 
 
-.ion-key{
+.ion-key, .ion-email, .ion-log-out{
 
   width: 100%;
-/* padding: 5px; */
+  /* padding: 5px; */
   font-size: 24px;
   color: white;
   transform: rotate(40deg);
@@ -222,11 +204,15 @@ select{
   font-style: normal;
   font-variant: small-caps;
 }
+.item-input{
+
+  border-radius: 3px;
+}
 .bg input{
   color: #fff;
 }
 .popup{
-
+  width: 300px !important;
   border-radius: 4px;
   background-color: rgba(0,0,0,0.5) !important;
 }
@@ -236,4 +222,32 @@ select{
 
 .popup-body input{
   padding:15px;
+}
+
+.downloaditem{
+  margin:8px !important;
+  padding-top : 7px;
+  padding-bottom : 7px;
+  padding-left : 7px;
+  font-size: 12px;
+}
+.downicon{
+  margin: 0px !important;
+  top:-5px !important;
+  background-color: transparent !important;
+  color : #4cd964 !important;
+  padding: 0px;
+}
+.downloadtext{
+
+  text-overflow: ellipsis;
+}
+img.icon {
+  margin-top: -14px;
+}
+.name{
+  text-align: left;
+}
+input[disabled]{
+  background-color: transparent !important;
 }

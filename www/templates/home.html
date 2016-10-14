@@ -4,6 +4,7 @@
     <div class = 'pane-bar pane-header'>
       <p class="head">Pakistan Standards & Quality Control Authority</p>
     </div>
+    <button class="absolute" ui-sref="login" ion-button><i class="icon ion-log-out"></i></button>
     <div class = 'pane-body'>
 
       <div class="row">
@@ -28,7 +29,7 @@
 
           <!-- COL 11 -->
           <div class = 'icon-holder col-50'>
-            <div class = 'icon-clickable'>
+            <div ui-sref="alerts" class = 'icon-clickable'>
               <i class="icon ion-android-notifications-none"></i>
             </div>
             <p class="icon-description">Alerts</p>
@@ -52,7 +53,7 @@
         <div class = 'row'>
           <!-- COL 21 -->
           <div class = 'icon-holder col-50'>
-            <div class = 'icon-clickable'>
+            <div class = 'icon-clickable' ng-click="scanBarcode()">
               <i class="icon ion-qr-scanner"></i>
             </div>
             <p class="icon-description">Verify By QR Code</p>
@@ -73,7 +74,7 @@
           <!-- COL 31 -->
           <div class = 'icon-holder col-50'>
 
-            <div class = 'icon-clickable'>
+            <div ui-sref="download" class = 'icon-clickable'>
               <i class="icon ion-archive"></i>
             </div>
             <p class="icon-description">Downloads</p>

@@ -1,7 +1,16 @@
-angular.module('psqca', ['ionic', 'LocalStorageModule'])
+angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova'])
 
-  .run(function ($ionicPlatform) {
+  .run(function ($ionicPlatform, $rootScope, $cordovaNetwork,$cordovaDialogs) {
     $ionicPlatform.ready(function () {
+
+
+      if(window.cordova && $cordovaNetwork.isOffline()){
+
+        $cordovaDialogs.alert("Connection Error", 'Connection Error','Ok');
+
+
+
+      }
       if (window.cordova && window.cordova.plugins.Keyboard) {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -24,6 +33,11 @@ angular.module('psqca', ['ionic', 'LocalStorageModule'])
         url: '/welcome',
         templateUrl: 'templates/welcome.html',
         controller: 'WelcomeController'
+      })
+      .state('download', {
+        url: '/download',
+        templateUrl: 'templates/download.html',
+        controller: 'downloadsController'
       })
       .state('login', {
         url: '/login',

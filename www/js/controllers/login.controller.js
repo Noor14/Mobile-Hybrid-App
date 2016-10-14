@@ -4,6 +4,9 @@
   loginCtrl.$inject = ['$scope', '$state','Auth','User','$ionicPopup','$ionicLoading'];
 
   function loginCtrl($scope, $state, Auth, User ,$ionicPopup, $ionicLoading) {
+    $scope.subscribe = function(){
+      $state.go('subscription');
+    };
     $scope.user = {};
     $scope.message = '';
     $scope.showPopup = function() {
@@ -18,7 +21,7 @@
         buttons: [
           { text: 'Cancel' },
           {
-            text: '<b>Send</b>',
+            text: '<b>Save</b>',
             type: 'button-positive',
             onTap: function(e) {
               if (!$scope.data.email) {
