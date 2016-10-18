@@ -1,6 +1,41 @@
 <ion-view>
+  <ion-content class = 'content'>
+    <div class="card">
+      <div class="pane-bar pane-header">
+        <p class="head">Pakistan Standards & Quality Control Authority</p>
+      </div>
+      <div  class=" col col- auth-buttons">
+        <img ui-sref="subscription" class="auth-icons" src="img/subscribeicon.png"><br>
+        <img ui-sref="login" class="auth-icons" src="img/login.png">
+      </div>
+      <div class="pane-body">
+        <!-- TODO Logo-large reqiire -->
+        <div class="row">
+          <div class="col"></div>
+          <div class="col col-75"> <img ui-sref="home" class="logo" src="img/app-homepage-logo.png" alt="logo-large"></div>
+          <div class="col"></div>
 
-  <p>Welcome page</p>
+        </div>
+        <div class="row">
+          <div class="col col-100">
+            <p ng-show="isLoaded" class="loading font">Say No To <br>Sub-Standards</p>
+          </div>
+        </div>
 
 
+        <div class="row">
+          <p class="loading">Pakistan Standards and Quality Control Authority</p>
+        </div>
+        <div class="row">
+          <img class="urdu" src="img/pcqca-urdu.png">
+        </div>
+      </div>
+      <div class="row">
+        <img class="logo2" src="img/psqca-org-logo.png">
+      </div>
+      <div class="pane-bar pane-footer">
+        <p class="Text">Copyrights 2016 by PSQCA<br>Design and Developed by Adarts Digital</p>
+      </div>
+    </div>
+  </ion-content>
 </ion-view>

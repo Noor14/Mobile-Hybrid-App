@@ -1,11 +1,20 @@
 /* Empty. Add your own CSS if you like */
-
+@font-face {
+  font-family: 'ufontscomepisodei';
+  src: url('./ufontscomepisodei.eot');
+  src: local('ufontscomepisodei'), url('./ufontscomepisodei.woff') format('woff'), url('./ufontscomepisodei.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'terranital';
+  src: url('./terranital.eot');
+  src: local('terranital'), url('./terranital.woff') format('woff'), url('./terranital.ttf') format('truetype');
+}
 .content{
   background-image: url("../img/background.jpg");
 }
 
 .pane-bar{
-  background-color: #4cd964;
+  background-image : url("../img/footer.png");
   color : white;
   font-size: 11px;
 
@@ -167,13 +176,15 @@ button.absolute{
   width: 3em;
   border: none;
   border-radius: 2px;
-  background-color: #4cd964;
+  background-image : url("../img/footer.png");
   /*height: 2.5em;*/
 
 }
+.auth-icons{
+  width: 24px;
+}
 
-
-.ion-key, .ion-email, .ion-log-out{
+.ion-key, .ion-email, .ion-ios-arrow-back .auth-buttons{
 
   width: 100%;
   /* padding: 5px; */
@@ -181,6 +192,9 @@ button.absolute{
   color: white;
   transform: rotate(40deg);
 
+}
+.auth-buttons{
+  position: absolute;
 }
 .list{
 
@@ -250,4 +264,37 @@ img.icon {
 }
 input[disabled]{
   background-color: transparent !important;
+}
+.loading{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+
+}
+.font{
+  font-family: 'terranital' !important;
+  font-size: x-large;
+}
+.logo{
+  width:100%;
+}
+.urdu{
+  width: 70%;
+  height: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.logo2{
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+  height: 120px;
+}
+.box-sm{
+  height:15px;
+  width:15px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid white;
+  border-radius: 5px;
 }

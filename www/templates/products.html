@@ -4,7 +4,7 @@
       <div class = 'pane-bar pane-header'>
         <p class="head">Pakistan Standards & Quality Control Authority</p>
       </div>
-      <button class="absolute" ui-sref="login" ion-button><i class="icon ion-log-out"></i></button>
+      <button class="absolute" ng-click="myGoBack()" ion-button><i class="icon ion-ios-arrow-back"></i></button>
         <div class="row">
 
           <div class = 'col col-100'>
@@ -35,7 +35,12 @@
             Search
           </button>
 
-          <div ng-show="show" class="col col-100">
+          <div ng-show="show" class="col col-100" ng-repeat = 'show in items'>
+            <div class="row">
+
+              <div class="col col-50">Liscense No:</div><div  class="name col col-50">{{show.LicenseNo}}</div>
+
+            </div>
 <div class="row">
 
   <div class="col col-50">UnitName:</div><div  class="name col col-50">{{show.UnitName}}</div>
@@ -46,7 +51,7 @@
 
           </div>
             <div class="row">
-          <div class="col col-50">Brand: </div><div  class="name col col-50">{{show.LicenseNo}}</div>
+          <div class="col col-50">Brand: </div><div  class="name col col-50">{{show.Brand}}</div>
 
         </div>
             <div class="row">
@@ -63,7 +68,7 @@
 
           </div>
 
-          <h4 ng-show="show"> This Product is certify by PSQCA</h4>
+          <h4 ng-show="show"> This Product is certified by PSQCA</h4>
           <h4 ng-show="notFound"> Product Not Found</h4>
 
 

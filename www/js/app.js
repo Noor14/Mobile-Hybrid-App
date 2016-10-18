@@ -90,7 +90,7 @@ angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova'])
         controller: 'AlertsController'
       });
 
-    $urlRouterProvider.otherwise('/subscription');
+    $urlRouterProvider.otherwise('/welcome');
     $httpProvider.interceptors.push('authInterceptor');
   }])
   .factory('authInterceptor', ['$q', 'localStorageService','$location', function ($q, localStorageService,$location) {

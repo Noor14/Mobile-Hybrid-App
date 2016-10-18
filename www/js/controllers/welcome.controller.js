@@ -5,5 +5,12 @@
 
   function welcomeCtrl($scope, $state) {
 
+    $scope.isLoaded = 'false';
+    //
+    // if($scope.route == 'welcome'){
+    //
+    // }
+
+    $scope.loadingBoxes = [1,2,3,4,5,6,7];
   }
 })();

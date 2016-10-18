@@ -1,10 +1,12 @@
 (function () {
   angular.module('psqca')
     .controller('ProductsController', productsCtrl);
-  productsCtrl.$inject = ['$scope', '$state','$http'];
+  productsCtrl.$inject = ['$scope', '$state','$http' , '$ionicHistory'];
 
-  function productsCtrl($scope, $state, $http) {
-
+  function productsCtrl($scope, $state, $http , $ionicHistory) {
+    $scope.myGoBack = function() {
+      $ionicHistory.goBack();
+    };
     $scope.item = {
       select : $scope.select
     };
@@ -18,27 +20,49 @@
     $scope.selecttion={option:""};
 
     $scope.search = function(){
-      console.log("bbb");
+      console.log("data.length="+$scope.data.length);
+      var isSearch = false;
+      var index = 0;
       for (var i = 0; i < $scope.data.length; i++) {
+        console.log($scope.data[i].LicenseNo + " ===== "+$scope.item.select);
 
-        if (($scope.data[i].Product == $scope.item.select) || ($scope.data[i].LicenseNo == $scope.item.select) || ($scope.data[i].UnitName == $scope.item.select) || ($scope.data[i].Brand == $scope.item.select)) {
+        var P = $scope.data[i].Product.toLowerCase();
+        var L = $scope.data[i].LicenseNo.toLowerCase();
+        var U = $scope.data[i].UnitName.toLowerCase();
+        var B = $scope.data[i].Brand.toLowerCase();
+        $scope.items = [];
 
-          $scope.show = $scope.data[i];
-          $scope.item.select="";
-          console.log("nn",$scope.show);
+
+        var Productfound = P.indexOf($scope.item.select.toLowerCase());
+        var LicenseNofound = L.indexOf($scope.item.select.toLowerCase());
+        var UnitNamefound = U.indexOf($scope.item.select.toLowerCase());
+        var Brandfound = B.indexOf($scope.item.select.toLowerCase());
+
+        //if (($scope.data[i].Product == $scope.item.select) || ($scope.data[i].LicenseNo == $scope.item.select) || ($scope.data[i].UnitName == $scope.item.select) || ($scope.data[i].Brand == $scope.item.select)) {
+        if ((Productfound >= 0) || (LicenseNofound >= 0) || (UnitNamefound >= 0) || (Brandfound >= 0)) {
+          $scope.items.push($scope.data[i]);
+
+          console.log("nn",$scope.items[i].LicenseNo);
           $scope.notFound="";
-          break;
+          isSearch = true;
+
         }
 
-        else if (($scope.data[i].Product !== $scope.item.select) || ($scope.data[i].LicenseNo !== $scope.item.select) || ($scope.data[i].UnitName !== $scope.item.select) || ($scope.data[i].Brand !== $scope.item.select)) {
+      /*  else if (($scope.data[i].Product !== $scope.item.select) || ($scope.data[i].LicenseNo !== $scope.item.select) || ($scope.data[i].UnitName !== $scope.item.select) || ($scope.data[i].Brand !== $scope.item.select)) {
 
           $scope.notFound = "Product Not Found";
           $scope.show='';
-          $scope.item.select="";
+          //$scope.item.select="";
           console.log("ggg",$scope.notFound);
-          break;
-        }
 
+        }*/
+
+      }
+      if(!isSearch){
+        $scope.notFound = "Product Not Found";
+
+        //$scope.item.select="";
+        console.log("ggg",$scope.notFound);
       }
     }
 
