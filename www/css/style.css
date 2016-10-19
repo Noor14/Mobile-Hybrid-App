@@ -298,3 +298,24 @@ input[disabled]{
   border: 1px solid white;
   border-radius: 5px;
 }
+.transparent{
+  background-color: rgba(0, 0, 0, 0.45);
+
+
+
+}
+.myhome{
+  position: absolute;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: transparent !important;
+  color: green !important;
+  width: 48px;
+  bottom:  4px !important;
+  opacity: 1 !important;
+}
+.footer_row{
+  /*
+  background-image: url("../img/background.jpg");
+  opacity: 0.5;*/
+}
