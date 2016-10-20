@@ -37,9 +37,11 @@
         var LicenseNofound = L.indexOf($scope.item.select.toLowerCase());
         var UnitNamefound = U.indexOf($scope.item.select.toLowerCase());
         var Brandfound = B.indexOf($scope.item.select.toLowerCase());
+        console.log(Object.$$values($scope.data[i]));
 
         //if (($scope.data[i].Product == $scope.item.select) || ($scope.data[i].LicenseNo == $scope.item.select) || ($scope.data[i].UnitName == $scope.item.select) || ($scope.data[i].Brand == $scope.item.select)) {
         if ((Productfound >= 0) || (LicenseNofound >= 0) || (UnitNamefound >= 0) || (Brandfound >= 0)) {
+
           $scope.items.push($scope.data[i]);
 
           console.log("nn",$scope.items[i].LicenseNo);

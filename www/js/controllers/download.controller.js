@@ -3,9 +3,9 @@
 (function () {
   angular.module('psqca')
     .controller('downloadsController', downloadCtrl);
-  downloadCtrl.$inject = ['$scope', '$state' ,'$timeout','$cordovaFileTransfer', '$ionicHistory'];
+  downloadCtrl.$inject = ['$scope', '$state' ,'$timeout','$cordovaFileTransfer', '$ionicHistory','$ionicPlatform'];
 
-  function downloadCtrl($scope, $state, $timeout, $cordovaFileTransfer , $ionicHistory)
+  function downloadCtrl($scope, $state, $timeout, $cordovaFileTransfer , $ionicHistory ,$ionicPlatform)
   {
 
     $scope.myGoBack = function() {
@@ -13,7 +13,7 @@
     };
 
     $scope.itemsn = [
-      {id:0, name: 'Application form for Certification Marks Licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/psqca Wall Paper.jpg' , file : 'wall_paper.jpg'},
+      {id:0, name: 'Application form for Certification Marks Licence' , url : 'http://www.psqca.com.pk/downloads/Download%203-2011/psqca%20Wall%20Paper.jpg' , file : 'wall_paper.jpg'},
       {id:1, name: 'Application for grant of licence ' , url : 'http://www.psqca.com.pk/downloads//Download 3-2011/Form I.pdf' , file : 'form1.pdf'},
       {id:2, name: 'Self evaluation-cum-declaration for licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/Form II.pdf' ,file : 'form2.pdf'},
       {id:3, name: 'Application for renewal of licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/Form IV.pdf' , file : 'form4.pdf'},
@@ -31,43 +31,42 @@
 
         var url = $scope.itemsn[id].url;
         var targetPath = cordova.file.documentsDirectory + $scope.itemsn[id].file;
-        var trustHosts = true;
+        var trustHosts = false;
         var options = {};
-        var myPopup_faliure = $ionicPopup.show({
-          template: '<h1>Unable to Download</h1>',
-          title: 'Download Failed',
-          scope: $scope,
-          buttons: [
-            {
-              text: '<b>OK</b>',
-              type: 'button-positive',
-            }
-          ]
-        });
-        var myPopup_success = $ionicPopup.show({
-          template: '<h1>Your File is Downloading</h1>',
-          title: 'Downloading',
-          scope: $scope,
-          buttons: [
-            {
-              text: '<b>OK</b>',
-              type: 'button-positive',
-            }
-          ]
-        });
-
-
+        // var myPopup_faliure = $ionicPopup.show({
+        //   template: '<h1>Unable to Download</h1>',
+        //   title: 'Download Failed',
+        //   scope: $scope,
+        //   buttons: [
+        //     {
+        //       text: '<b>OK</b>',
+        //       type: 'button-positive',
+        //     }
+        //   ]
+        // });
+        // var myPopup_success = $ionicPopup.show({
+        //   template: '<h1>Your File is Downloading</h1>',
+        //   title: 'Downloading',
+        //   scope: $scope,
+        //   buttons: [
+        //     {
+        //       text: '<b>OK</b>',
+        //       type: 'button-positive',
+        //     }
+        //   ]
+        // });
+        //
+        $scope.downloadProgress = 0;
+        $scope.d=id;
        $scope.status =  $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
           .then(function(result) {
             // Success!
-            myPopup_success.then(function(res) {
-              console.log('Tapped!', res);
-            });
+            $scope.results = result;
+
           }, function(err) {
+            $scope.error = err;
             // Error
-            myPopup_faliure.then(function(res) {
-              console.log('Tapped!', res);
-            });
+
           }, function (progress) {
             $timeout(function () {
               $scope.downloadProgress = (progress.loaded / progress.total) * 100;
