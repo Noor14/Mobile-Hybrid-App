@@ -12,69 +12,103 @@
           </div>
         </div>
 
-        <div class="inputs">
+      <div class="inputs">
         <h4 class= "align">Search Products From The<br/>Mendatory Items</h4>
-          <div class = 'list'>
-            <label class="item select item-select">
-                <select ng-model="selected">
-                  <option value="">Select Option</option>
-                  <option>Product Name</option>
-                  <option>CM License No</option>
-                  <option>Brand Name</option>
-                  <option>Manufacturer Name</option>
-                </select>
+        <div class = 'list'>
+          <label class="item select item-select">
+            <select ng-model="selected">
+              <option value="">Select Option</option>
+              <option>Product Name</option>
+              <option>CM License No</option>
+              <option>Brand Name</option>
+              <option>Manufacturer Name</option>
+            </select>
 
 
-            </label>
+          </label>
 
-            <label class="item item-input bg">
-              <input ng-disabled="!selected" ng-model="item.select" type="text" placeholder="Search">
-            </label>
-          </div>
-          <button ng-disabled="!item.select" ng-click="search()" class="button button-full button-balanced">
-            Search
-          </button>
+          <label class="item item-input bg">
+            <input ng-disabled="!selected" ng-model="item.select" type="text" placeholder="Search">
+          </label>
+        </div>
+        <button ng-disabled="!item.select" ng-click="search()" class="button button-full button-balanced">
+          Search
+        </button>
+        <div class="result" ng-show="searchData.length !=''">
+          <div ng-show="show" class="col seperater col-100" ng-repeat="show in searchData">
 
-          <div ng-show="show" class="col col-100" ng-repeat = 'show in items'>
+
             <div class="row">
-
-              <div class="col col-50">Liscense No:</div><div  class="name col col-50">{{show.LicenseNo}}</div>
+              <div  class="name col col-100"><a ng-click="match(show.LicenseNo)">{{show.Product}}</a></div>
 
             </div>
-<div class="row">
-
-  <div class="col col-50">UnitName:</div><div  class="name col col-50">{{show.UnitName}}</div>
-
-</div>
             <div class="row">
-            <div class="col col-50">Product: </div><div  class="name col col-50">{{show.Product}}</div>
+              <div  class="name col col-100"><a ng-click="match(show.LicenseNo)">{{show.Brand}}</a></div>
 
-          </div>
-            <div class="row">
-          <div class="col col-50">Brand: </div><div  class="name col col-50">{{show.Brand}}</div>
-
-        </div>
-            <div class="row">
-      <div class="col col-50">Period upto: </div><div  class="name col col-50">{{show.periodto}}</div>
-
-    </div>
+            </div>
 
 
-    <!--<p>Status: {{show.status}}</p>-->
+
+            <!--<p>Status: {{show.status}}</p>-->
 
 
 
 
 
           </div>
-
-          <h4 ng-show="show"> This Product is certified by PSQCA</h4>
-          <h4 ng-show="notFound"> Product Not Found</h4>
-
-
-
-
         </div>
+
+
+
+        <div class="result" ng-show="matchData">
+          <div  class="col seperater col-100">
+
+
+            <div class="row">
+              <div  class="name col col-100">{{matchData.LicenseNo}}</div>
+
+            </div>
+            <div class="row">
+              <div  class="name col col-100">{{matchData.UnitName}}</div>
+
+            </div>
+            <div class="row">
+              <div  class="name col col-100">{{matchData.Brand}}</div>
+
+            </div>
+
+            <div class="row">
+              <div  class="name col col-100">{{matchData.Product}}</div>
+
+            </div>
+
+            <div class="row">
+              <div  class="name col col-100">{{matchData.periodto}}</div>
+
+            </div>
+
+
+
+            <!--<p>Status: {{show.status}}</p>-->
+
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+
+        <h4 ng-show="searchData.length !=''"> This Product is certified by PSQCA</h4>
+        <h4 ng-show="notFound"> Product Not Found</h4>
+
+
+
+
+      </div>
 
 
 

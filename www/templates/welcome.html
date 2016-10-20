@@ -4,15 +4,15 @@
       <div class="pane-bar pane-header">
         <p class="head">Pakistan Standards & Quality Control Authority</p>
       </div>
-      <div  class=" col col- auth-buttons">
-        <img ui-sref="subscription" class="auth-icons" src="img/subscribeicon.png"><br>
-        <img ui-sref="login" class="auth-icons" src="img/login.png">
+      <div  class=" col auth-buttons">
+        <button class="absolute" ng-click="subscribe()" ion-button><i class="icon ion-email"></i></button><br>
+        <button class="absolute" ng-click="loginPage()" ion-button><i class="icon ion-key"></i></button>
       </div>
       <div class="pane-body">
         <!-- TODO Logo-large reqiire -->
         <div class="row">
           <div class="col"></div>
-          <div class="col col-75"> <img ui-sref="home" class="logo" src="img/app-homepage-logo.png" alt="logo-large"></div>
+          <div class="col col-75"> <img class="logo" src="img/app-homepage-logo.png" alt="logo-large"></div>
           <div class="col"></div>
 
         </div>
