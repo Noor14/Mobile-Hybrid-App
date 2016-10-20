@@ -28,21 +28,47 @@
         </div>
         <div class="inputs">
 
-          <div class = 'list' ng-repeat="field in fields">
-            <p class = 'text'>{{field}}</p>
+
+          <div class = 'list'>
+            <p class = 'text'>Full Name</p>
             <label class="item item-input">
-              <input type="text" placeholder="{{field}}">
+              <input type="text" ng-model="mail.Name" placeholder="Full Name">
+            </label>
+          </div>
+
+
+          <div class = 'list'>
+            <p class = 'text'>E mail</p>
+            <label class="item item-input">
+              <input type="email" ng-model="mail.E_mail" placeholder="E-mail">
+            </label>
+          </div>
+
+
+
+
+          <div class = 'list'>
+            <p class = 'text'>Contact Number</p>
+            <label class="item item-input">
+              <input type="text" onkeypress="return isNumber(event)" ng-model="mail.Number" placeholder="Contact Number">
+            </label>
+          </div>
+
+          <div class = 'list'>
+            <p class = 'text'>Organization</p>
+            <label class="item item-input">
+              <input type="text" ng-model="mail.Organization" placeholder="Organization">
             </label>
           </div>
           <p class = 'text'>Message</p>
           <label class="item item-input">
-          <textarea placeholder="Message"></textarea>
-            </label>
+            <textarea placeholder="Message" ng-model="mail.message"></textarea>
+          </label>
 
 
-          <button ui-sref="login" class="button button-full button-balanced">
+          <button  ng-disabled="!mail.E_mail" ng-click="maildone()" class="button button-full button-balanced">
             Send
-          </button>
+          </button>{{send}}
 
         </div>
 
@@ -57,3 +83,5 @@
 
 
 </ion-view>
+
+

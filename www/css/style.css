@@ -171,7 +171,7 @@ a.fb{
 }
 button.absolute{
   /*position: absolute;*/
-  /*margin-top: 30px !important;*/
+  margin-top: 4px !important;
   /*margin-left: -41px;*/
   width: 3em;
   border: none;
@@ -184,7 +184,7 @@ button.absolute{
   width: 24px;
 }
 
-.ion-key, .ion-email, .ion-ios-arrow-back .auth-buttons{
+.ion-key, .ion-email,.ion-ios-arrow-back{
 
   width: 100%;
   /* padding: 5px; */
@@ -194,12 +194,18 @@ button.absolute{
 
 }
 .auth-buttons{
+  padding-left: 0px;
   position: absolute;
 }
 .list{
 
   margin-bottom: 0px !important;
 
+}
+.container li{
+  margin-left: 2em;
+  text-indent: -2em;
+  padding: 10px;
 }
 
 .bg{
@@ -259,8 +265,24 @@ select{
 img.icon {
   margin-top: -14px;
 }
+
 .name{
-  text-align: left;
+  text-align: center;
+
+}
+.name a{
+  cursor: pointer;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.result{
+  height:auto;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+.seperater{
+  border-bottom: 2px dotted white;
 }
 input[disabled]{
   background-color: transparent !important;
