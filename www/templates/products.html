@@ -18,10 +18,10 @@
           <label class="item select item-select">
             <select ng-model="selected">
               <option value="">Select Option</option>
+              <option>Product Category</option>
               <option>Product Name</option>
               <option>CM License No</option>
               <option>Brand Name</option>
-              <option>Manufacturer Name</option>
             </select>
 
 
@@ -39,7 +39,7 @@
 
 
             <div class="row">
-              <div  class="name col col-100"><a ng-click="match(show.LicenseNo)">{{show.Product}}</a></div>
+              <div  class="name col col-100"><a ng-click="match(show.LicenseNo)">{{show.ProductCategoryPSS}}</a></div>
 
             </div>
             <div class="row">
@@ -78,12 +78,22 @@
             </div>
 
             <div class="row">
-              <div  class="name col col-100">{{matchData.Product}}</div>
+              <div  class="name col col-100">{{matchData.ProductCategoryPSS}}</div>
 
             </div>
 
             <div class="row">
-              <div  class="name col col-100">{{matchData.periodto}}</div>
+              <div  class="name col col-100">{{matchData.ProductByDivision}}</div>
+
+            </div>
+
+            <div class="row">
+              <div  class="name col col-100">{{matchData.ValidTo}}</div>
+
+            </div>
+
+            <div class="row">
+              <div  class="name col col-100">{{matchData.Division}}</div>
 
             </div>
 
