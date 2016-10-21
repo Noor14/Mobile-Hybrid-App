@@ -7,12 +7,20 @@
     $scope.myGoBack = function() {
       $ionicHistory.goBack();
     };
+
+    $scope.logout = function(){
+      $ionicHistory.clearHistory();
+      $state.go("welcome");
+
+
+    };
     $scope.item = {
       select : $scope.select
     };
     $http.get('js/data.json').success(function(response){
 
       $scope.data = response;
+      console.log($scope.data.length,"mg");
 
     });
     $scope.searchData=[];
@@ -24,7 +32,8 @@
 
       $scope.searchData=[];
       for (var i = 0; i < $scope.data.length; i++) {
-        var product = $scope.data[i].Product.toLowerCase();
+        var product = $scope.data[i].ProductByDivision.toLowerCase();
+        var category = $scope.data[i].ProductCategoryPSS.toLowerCase();
         var licenseNo = $scope.data[i].LicenseNo.toLowerCase();
         var unitName = $scope.data[i].UnitName.toLowerCase();
         var brand = $scope.data[i].Brand.toLowerCase();
@@ -34,9 +43,10 @@
         var lis = licenseNo.indexOf($scope.item.select.toLowerCase());
         var name = unitName.indexOf($scope.item.select.toLowerCase());
         var br = brand.indexOf($scope.item.select.toLowerCase());
+        var cat = category.indexOf($scope.item.select.toLowerCase());
 
 
-        if ((pro >= 0) || (lis >= 0) || (name >= 0) || (br >= 0)) {
+        if ((pro >= 0) || (lis >= 0) || (name >= 0) || (br >= 0) || (cat >= 0) ) {
 
           $scope.searchData.push($scope.data[i]);
           console.log("nn",$scope.searchData.length);

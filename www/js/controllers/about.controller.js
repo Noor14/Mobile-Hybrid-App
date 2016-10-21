@@ -9,6 +9,13 @@
       $ionicHistory.goBack();
     };
 
+    $scope.logout = function(){
+      $ionicHistory.clearHistory();
+      $state.go("welcome");
+
+
+    };
+
   }
 
 })();

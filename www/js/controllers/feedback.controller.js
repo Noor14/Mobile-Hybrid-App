@@ -2,10 +2,17 @@
   .controller('feedBackController', loginCtrl);
   loginCtrl.$inject = ['$scope', '$state','$http','form','$ionicHistory'];
 
-  function loginCtrl($scope, $state, $http, form,$ionicHistory) {
+  function loginCtrl($scope, $state, $http, form, $ionicHistory) {
 
     $scope.myGoBack = function() {
       $ionicHistory.goBack();
+    };
+
+    $scope.logout = function(){
+      $ionicHistory.clearHistory();
+      $state.go("welcome");
+
+
     };
     $scope.mail = {};
 

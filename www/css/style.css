@@ -295,7 +295,7 @@ input[disabled]{
 }
 .font{
   font-family: 'terranital' !important;
-  font-size: x-large;
+  font-size: large;
 }
 .logo{
   width:100%;
@@ -320,7 +320,17 @@ input[disabled]{
   border: 1px solid white;
   border-radius: 5px;
 }
+/*Noor Work HEAD */
+.footertab{
+  background-color: rgba(0,0,0,.2);
 
+}
+.tab-item .icon {
+  margin: 1px auto;
+}
+.tab-item {
+  font-size: 11px;
+}
 /*Splash Screen*/
 
 .progressBar{
@@ -413,6 +423,9 @@ input[disabled]{
   100% {
     margin-top: 0px;
   }
+
+
+
 
 
 }

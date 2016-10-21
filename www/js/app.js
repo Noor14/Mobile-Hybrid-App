@@ -1,4 +1,4 @@
-angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova'])
+angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova','ngCookies'])
 
   .run(function ($ionicPlatform, $rootScope, $cordovaNetwork,$cordovaDialogs) {
 
@@ -44,7 +44,8 @@ angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova'])
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
-        controller: 'LoginController'
+        controller: 'LoginController',
+        cache : false
       })
       .state('subscription', {
         url: '/subscription',
