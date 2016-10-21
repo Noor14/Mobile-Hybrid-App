@@ -12,6 +12,13 @@
       $ionicHistory.goBack();
     };
 
+    $scope.logout = function(){
+      $ionicHistory.clearHistory();
+      $state.go("welcome");
+
+
+    };
+
     $scope.itemsn = [
       {id:0, name: 'Application form for Certification Marks Licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/psqca Wall Paper.jpg' , file : 'wall_paper.jpg'},
       {id:1, name: 'Application for grant of licence ' , url : 'http://www.psqca.com.pk/downloads//Download 3-2011/Form I.pdf' , file : 'form1.pdf'},

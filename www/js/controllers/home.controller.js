@@ -6,7 +6,12 @@
   function homeCtrl($scope, $state , $cordovaCamera , $ionicPlatform , $ionicHistory) {
 
 
+    $scope.logout = function(){
+      $ionicHistory.clearHistory();
+      $state.go("welcome");
 
+
+    };
 // OR with IONIC
     $scope.scanBarcode = function() {
       $scope.msg = "In Function Scan";

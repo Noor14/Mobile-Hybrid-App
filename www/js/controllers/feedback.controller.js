@@ -7,6 +7,13 @@
     $scope.myGoBack = function() {
       $ionicHistory.goBack();
     };
+
+    $scope.logout = function(){
+      $ionicHistory.clearHistory();
+      $state.go("welcome");
+
+
+    };
     $scope.mail = {};
 
     $scope.maildone = function () {

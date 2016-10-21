@@ -1,13 +1,27 @@
 (function () {
   angular.module('psqca')
     .controller('LoginController', loginCtrl);
-  loginCtrl.$inject = ['$scope', '$state','Auth','User','$ionicPopup','$ionicLoading'];
+  loginCtrl.$inject = ['$scope', '$state','Auth','User','$ionicPopup','$ionicLoading','$cookies'];
 
-  function loginCtrl($scope, $state, Auth, User ,$ionicPopup, $ionicLoading) {
+  function loginCtrl($scope, $state, Auth, User ,$ionicPopup, $ionicLoading, $cookies) {
     $scope.subscribe = function(){
       $state.go('subscription');
     };
+
     $scope.user = {};
+
+
+    $scope.user.email = $cookies.get('email');
+    $scope.user.password = $cookies.get('pass');
+
+$scope.storeCookie = function(user, pass){
+
+$cookies.put('email', user);
+$cookies.put('pass', pass);
+
+
+};
+console.log($scope.user,"my login");
     $scope.message = '';
     $scope.showPopup = function() {
       $scope.data = {};
