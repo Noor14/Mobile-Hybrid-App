@@ -9,8 +9,8 @@
     };
 
     $scope.logout = function(){
-      $ionicHistory.clearHistory();
       $state.go("welcome");
+      $ionicHistory.clearHistory();
 
 
     };
