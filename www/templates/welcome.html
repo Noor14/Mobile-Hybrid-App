@@ -1,6 +1,34 @@
 <ion-view>
+  <!--|||||||||||||||||||||||||||||||CODE FOR SPLASH SCREEN |||||||||||||||||||||||||||||||||-->
+  <ion-content ng-show="!notFirstTime" class="fullScreen">
+    <!-- Splash Screen Top PSQCA Logo -->
+    <div><img src="img/app-homepage-logo.png" class="splashlogo"> </div>
+    <!--Animated Image-->
+    <div class = "animationSpace">
+      <img class = "animate tick" src="img/tick.png">
+    </div>
+    <!--Progress bar-->
+    <div class="progress">
+      <div class = progressBar>
+        <div class="progressFill" ng-style="{width: progress+'%'}"></div>
+      </div>
+      <div class = "progressText">
+        {{progress}}%
+      </div>
+    </div>
+    <!--Put in the End Of Div fullScreen-->
+    <div class="fillSpace"></div>
+
+    </ion-content>
   <ion-content class = 'content'>
-    <div class="card">
+
+
+
+
+
+
+    <!--|||||||||||||||||||||||||||||||CODE FOR WELCOME |||||||||||||||||||||||||||||||||-->
+    <div ng-show="notFirstTime" class="card">
       <div class="pane-bar pane-header">
         <p class="head">Pakistan Standards & Quality Control Authority</p>
       </div>

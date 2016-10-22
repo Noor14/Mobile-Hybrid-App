@@ -1,9 +1,24 @@
 (function () {
   angular.module('psqca')
     .controller('WelcomeController', welcomeCtrl);
-  welcomeCtrl.$inject = ['$scope', '$state'];
+  welcomeCtrl.$inject = ['$rootScope','$scope', '$state','$interval'];
 
-  function welcomeCtrl($scope, $state) {
+  function welcomeCtrl($rootScope ,$scope, $state ,$interval) {
+
+    $scope.progress = 0;
+    var stop;
+    $scope.callAtInterval = function() {
+      console.log("$scope.callAtInterval - Interval occurred"+$scope.progress);
+      $scope.progress += 1;
+      if($scope.progress > 100){
+        $state.go('welcome');
+        $rootScope.notFirstTime = true;
+      }
+    }
+
+    if(!$rootScope.notFirstTime) {
+      stop = $interval($scope.callAtInterval, 30 , 130);
+    }
 
     $scope.isLoaded = 'false';
     //

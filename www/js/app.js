@@ -1,7 +1,9 @@
 angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova','ngCookies'])
 
   .run(function ($ionicPlatform, $rootScope, $cordovaNetwork,$cordovaDialogs) {
+
     $ionicPlatform.ready(function () {
+      $rootScope.notFirstTime = false;
 
 
       if(window.cordova && $cordovaNetwork.isOffline()){
