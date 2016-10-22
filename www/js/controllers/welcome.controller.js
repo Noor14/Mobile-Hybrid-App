@@ -14,7 +14,7 @@
         $state.go('welcome');
         $rootScope.notFirstTime = true;
       }
-    }
+    };
 
     if(!$rootScope.notFirstTime) {
       stop = $interval($scope.callAtInterval, 30 , 130);

@@ -21,7 +21,7 @@
 
     form.mailSend($scope.mail).then(function success(response) {
 
-        $scope.mail = "";
+        $scope.mail = {};
         $scope.send = "Mail Send Successfully";
         console.log(response.data);
 
@@ -30,7 +30,7 @@
       },
       function errorCallback(error) {
         console.log(error);
-        $scope.mail = "";
+        $scope.mail = {};
         $scope.send = "Mail not Send Successfully";
       });
 
