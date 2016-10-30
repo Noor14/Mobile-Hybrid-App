@@ -68,8 +68,8 @@
     $scope.downloadFile = function (id) {
       var url = encodeURI($scope.itemsn[id].url);
       var filename = url.split("/").pop();
-      var targetPath = cordova.file.externalDataDirectory + filename;
-      //var targetPath = "///storage/emulated/0/PSQCA/" + filename;
+      //var targetPath = cordova.file.externalDataDirectory + filename;
+      var targetPath = "///storage/emulated/0/PSQCA/" + filename;
 
       var trustHosts = true;
       var options = {};
