@@ -1,11 +1,13 @@
 <ion-view>
   <!--|||||||||||||||||||||||||||||||CODE FOR SPLASH SCREEN |||||||||||||||||||||||||||||||||-->
-  <ion-content ng-show="!notFirstTime" class="fullScreen">
-    <!-- Splash Screen Top PSQCA Logo -->
+  <div ng-show="!notFirstTime" class="fullScreen">
     <div><img src="img/app-homepage-logo.png" class="splashlogo"> </div>
     <!--Animated Image-->
     <div class = "animationSpace">
-      <img class = "animate tick" src="img/tick.png">
+      <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
     </div>
     <!--Progress bar-->
     <div class="progress">
@@ -19,7 +21,8 @@
     <!--Put in the End Of Div fullScreen-->
     <div class="fillSpace"></div>
 
-    </ion-content>
+
+  </div>
   <ion-content class = 'content'>
 
 
@@ -46,7 +49,7 @@
         </div>
         <div class="row">
           <div class="col col-100">
-            <p ng-show="isLoaded" class="loading font">Say No To <br>Sub-Standards Products</p>
+            <p ng-show="isLoaded" class="loading font">Say No To <br>Sub-Standard Products</p>
           </div>
         </div>
 

@@ -5,11 +5,11 @@
         <p class="head">Pakistan Standards & Quality Control Authority</p>
       </div>
       <button class="absolute" ng-click="myGoBack()" ion-button><i class="icon ion-ios-arrow-back"></i></button>
-      <ul ng-repeat="item in itemsn" class = 'list'>
+      <ul ng-repeat="item in itemsn track by $index" class = 'list'>
         <li class = 'item item-button-right downloaditem'>
           <p class =' downloadtext'>{{item.name}}</p>
 
-          <button ng-click="downloadFile(item.id)" class="button button-positive downicon">
+          <button ng-click="downloadFile($index)" class="button button-positive downicon">
             <i class="icon ion-archive "></i>
           </button>
         </li>

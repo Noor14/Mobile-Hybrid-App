@@ -14,7 +14,7 @@
 }
 
 .pane-bar{
-  background-image : url("../img/footer.png");
+  background-image : url("../img/footer.png")!important;
   color : white;
   font-size: 11px;
 
@@ -232,6 +232,7 @@ select{
   color: #fff;
 }
 .popup{
+  color: white;
   width: 300px !important;
   border-radius: 4px;
   background-color: rgba(0,0,0,0.5) !important;
@@ -335,14 +336,15 @@ input[disabled]{
 
 .progressBar{
   height: 10px;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   background-color: grey;
 
 }
 .progressFill{
   height: 100%;
   width: 0%;
-  background-color : #03A9F4;
+  background-color : white;
 
 }
 .progressText{
@@ -351,10 +353,10 @@ input[disabled]{
   font-family: 'terranital' !important;
 }
 .fullScreen{
-  position: fixed;
+  position: fixed !important;
   height: 100%;
   width: 100%;
-  background-color: #8BC34A !important;
+
   z-index: 2;
 }
 .fillSpace{
@@ -362,7 +364,7 @@ input[disabled]{
 }
 .animationSpace{
   width: 100%;
-  height : 200px;
+  height : 100px;
   text-align:center
 }
 .tick{
@@ -428,4 +430,66 @@ input[disabled]{
 
 
 
+}
+
+
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.cube1 {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+.cube2 {
+  background-color: green;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% {
+      transform: translateX(42px) translateY(42px) rotate(-179deg);
+      -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+    } 50.1% {
+        transform: translateX(42px) translateY(42px) rotate(-180deg);
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+      } 75% {
+          transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+          -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+        } 100% {
+            transform: rotate(-360deg);
+            -webkit-transform: rotate(-360deg);
+          }
 }

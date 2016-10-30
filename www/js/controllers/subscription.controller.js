@@ -3,7 +3,7 @@
     .controller('SubscriptionController', subscriptionCtrl);
   subscriptionCtrl.$inject = ['$scope', '$state','User','localStorageService'];
 
-  function subscriptionCtrl($scope, $state, User, localStorageService ) {
+  function subscriptionCtrl($scope, $state, User, localStorageService) {
     $scope.user = {};
     $scope.subscribe = function(){
       console.log('user ', $scope.user);

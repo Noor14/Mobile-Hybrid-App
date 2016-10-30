@@ -1,16 +1,26 @@
 (function () {
   angular.module('psqca')
     .controller('WelcomeController', welcomeCtrl);
-  welcomeCtrl.$inject = ['$rootScope','$scope', '$state','$interval'];
+  welcomeCtrl.$inject = ['$rootScope','$scope', '$state','$interval','$ionicHistory'];
 
-  function welcomeCtrl($rootScope ,$scope, $state ,$interval) {
+  function welcomeCtrl($rootScope ,$scope, $state ,$interval , $ionicHistory) {
+    $ionicHistory.clearHistory();
+
+    console.log($ionicHistory.viewHistory(),"mmm");
 
     $scope.progress = 0;
+    var progressInc = 0;
     var stop;
     $scope.callAtInterval = function() {
-      console.log("$scope.callAtInterval - Interval occurred"+$scope.progress);
-      $scope.progress += 1;
-      if($scope.progress > 100){
+
+      progressInc += 1;
+      if(progressInc > 100){
+
+      }
+      else{
+        $scope.progress = progressInc;
+      }
+      if(progressInc > 100){
         $state.go('welcome');
         $rootScope.notFirstTime = true;
       }

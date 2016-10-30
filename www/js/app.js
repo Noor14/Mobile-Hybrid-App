@@ -1,6 +1,6 @@
 angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova','ngCookies'])
 
-  .run(function ($ionicPlatform, $rootScope, $cordovaNetwork,$cordovaDialogs) {
+  .run(function ($ionicPlatform, $rootScope, $cordovaNetwork, $cordovaDialogs) {
 
     $ionicPlatform.ready(function () {
       $rootScope.notFirstTime = false;
@@ -8,7 +8,7 @@ angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova','ngCookies'])
 
       if(window.cordova && $cordovaNetwork.isOffline()){
 
-        $cordovaDialogs.alert("Connection Error", 'Connection Error','Ok');
+        $cordovaDialogs.alert("Internet Connection Error", 'Internet Connection Error','Ok');
 
 
 
@@ -92,7 +92,6 @@ angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova','ngCookies'])
         templateUrl: 'templates/alerts.html',
         controller: 'AlertsController'
       });
-
     $urlRouterProvider.otherwise('/welcome');
     $httpProvider.interceptors.push('authInterceptor');
   }])

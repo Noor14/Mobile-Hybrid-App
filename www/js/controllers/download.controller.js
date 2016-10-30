@@ -3,16 +3,15 @@
 (function () {
   angular.module('psqca')
     .controller('downloadsController', downloadCtrl);
-  downloadCtrl.$inject = ['$scope', '$state' ,'$timeout','$cordovaFileTransfer', '$ionicHistory'];
+  downloadCtrl.$inject = ['$scope', '$state' ,'$timeout','$cordovaFileTransfer','$ionicPopup', '$ionicHistory','$ionicLoading'];
 
-  function downloadCtrl($scope, $state, $timeout, $cordovaFileTransfer , $ionicHistory)
-  {
+  function downloadCtrl($scope, $state, $timeout, $cordovaFileTransfer, $ionicPopup, $ionicHistory,$ionicLoading) {
 
-    $scope.myGoBack = function() {
+    $scope.myGoBack = function () {
       $ionicHistory.goBack();
     };
 
-    $scope.logout = function(){
+    $scope.logout = function () {
       $state.go("welcome");
       $ionicHistory.clearHistory();
 
@@ -20,78 +19,85 @@
     };
 
     $scope.itemsn = [
-      {id:0, name: 'Application form for Certification Marks Licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/psqca Wall Paper.jpg' , file : 'wall_paper.jpg'},
-      {id:1, name: 'Application for grant of licence ' , url : 'http://www.psqca.com.pk/downloads//Download 3-2011/Form I.pdf' , file : 'form1.pdf'},
-      {id:2, name: 'Self evaluation-cum-declaration for licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/Form II.pdf' ,file : 'form2.pdf'},
-      {id:3, name: 'Application for renewal of licence' , url : 'http://www.psqca.com.pk/downloads/Download 3-2011/Form IV.pdf' , file : 'form4.pdf'},
-      {id:4, name: 'SROs and Gazette Notifications' , url : 'http://www.psqca.com.pk/downloads/PSQCA-SRO.pdf' , file : 'psqca_sqo.pdf'},
-      {id:5, name: 'Application Form for Registration of Inspection Agency' , url : 'http://www.psqca.com.pk/downloads/PSQCA-App-form-inspec-agencies.pdf' , file : 'agencies.pdf'},
-      {id:6, name: 'Documents Required' , url : 'http://www.psqca.com.pk/downloads/test2/Download/2016/June/Import export/DOCUMENTS_REQUIRED.doc' , file : 'required.doc'},
-      {id:7, name: 'Complete Information of Consignee' , url : 'http://www.psqca.com.pk/downloads/test2/Download/2016/June/Import export/complete_information_of_consignee.doc' , file : 'consignee.doc'}
+      {name: 'Application form for Certification Marks Licence',
+        url: 'http://pakalerts.net/file/feedback.doc'
+      },
+      {
+        name: 'Application for grant of licence ',
+        url: 'http://www.psqca.com.pk/downloads//Download 3-2011/Form I.pdf'
+      },
+      {
+        name: 'Self evaluation-cum-declaration for licence',
+        url: 'http://www.psqca.com.pk/downloads/Download 3-2011/Form II.pdf'
+      },
+      {
+        name: 'Application for renewal of licence',
+        url: 'http://www.psqca.com.pk/downloads/Download 3-2011/Form IV.pdf'
+      },
+      {
+        name: 'SROs and Gazette Notifications',
+        url: 'http://www.psqca.com.pk/downloads/PSQCA-SRO.pdf'
+      },
+      {
+        name: 'Application Form for Registration of Inspection Agency',
+        url: 'http://www.psqca.com.pk/downloads/PSQCA-App-form-inspec-agencies.pdf'
+      },
+      {
+        name: 'Documents Required',
+        url: 'http://www.psqca.com.pk/downloads/test2/Download/2016/June/Import export/DOCUMENTS_REQUIRED.doc'
+      },
+      {
+        name: 'Complete Information of Consignee',
+        url: 'http://www.psqca.com.pk/downloads/test2/Download/2016/June/Import export/complete_information_of_consignee.doc'
+      }
 
 
     ];
+  $scope.success = function() {
+      $ionicPopup.show({
+        template: '<p> File Download Successfully In Phone Storage PSQCA Folder </p>',
+        title: 'Download',
+        buttons: [
+          {text: 'OK',
+            type: 'button-positive'
+          }
+        ]
+      });
+    };
 
-    $scope.downloadFile = function(id){
+    $scope.downloadFile = function (id) {
+      var url = encodeURI($scope.itemsn[id].url);
+      var filename = url.split("/").pop();
+      var targetPath = cordova.file.externalDataDirectory + filename;
+      //var targetPath = "///storage/emulated/0/PSQCA/" + filename;
 
-      $ionicPlatform.ready( function () {
+      var trustHosts = true;
+      var options = {};
 
-        var url = $scope.itemsn[id].url;
-        var targetPath = cordova.file.documentsDirectory + $scope.itemsn[id].file;
-        var trustHosts = true;
-        var options = {};
-        var myPopup_faliure = $ionicPopup.show({
-          template: '<h1>Unable to Download</h1>',
-          title: 'Download Failed',
-          scope: $scope,
-          buttons: [
-            {
-              text: '<b>OK</b>',
-              type: 'button-positive',
-            }
-          ]
-        });
-        var myPopup_success = $ionicPopup.show({
-          template: '<h1>Your File is Downloading</h1>',
-          title: 'Downloading',
-          scope: $scope,
-          buttons: [
-            {
-              text: '<b>OK</b>',
-              type: 'button-positive',
-            }
-          ]
-        });
+      $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
+        .then(function (result) {
+          // Success!
+          $ionicLoading.hide();
+          $scope.success();
+          //alert("File Download Successfully In Phone Storage PSQCA Folder");
+          console.log("download Success",result)
+        }, function (err) {
+          // Error
+          alert("File Not Found");
+          console.log("download error",err)
 
+        }, function (progress) {
+          $ionicLoading.show({template: '<ion-spinner icon="spiral"></ion-spinner>'});
+          console.log("download progress",progress);
 
-       $scope.status =  $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
-          .then(function(result) {
-            // Success!
-            myPopup_success.then(function(res) {
-              console.log('Tapped!', res);
-            });
-          }, function(err) {
-            // Error
-            myPopup_faliure.then(function(res) {
-              console.log('Tapped!', res);
-            });
-          }, function (progress) {
-            $timeout(function () {
-              $scope.downloadProgress = (progress.loaded / progress.total) * 100;
-            });
+          $timeout(function () {
+            $scope.downloadProgress = (progress.loaded / progress.total) * 100;
           });
+        });
 
-      }, false);
-
-
-
-
-
-
-    }
-
-
+    };
   }
+
 
 })();
 
