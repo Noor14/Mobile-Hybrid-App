@@ -3,9 +3,9 @@
 (function () {
   angular.module('psqca')
     .controller('downloadsController', downloadCtrl);
-  downloadCtrl.$inject = ['$scope', '$state' ,'$timeout','$cordovaFileTransfer','$ionicPopup', '$ionicHistory','$ionicLoading'];
+  downloadCtrl.$inject = ['$scope', '$state' ,'$timeout','$cordovaFileTransfer','$ionicPopup', '$ionicHistory','$ionicLoading','$http'];
 
-  function downloadCtrl($scope, $state, $timeout, $cordovaFileTransfer, $ionicPopup, $ionicHistory,$ionicLoading) {
+  function downloadCtrl($scope, $state, $timeout, $cordovaFileTransfer, $ionicPopup, $ionicHistory,$ionicLoading,$http) {
 
     $scope.myGoBack = function () {
       $ionicHistory.goBack();
@@ -17,42 +17,17 @@
 
 
     };
+    $http.get('http://pakalerts.net/mail/downloadurl.php')
+      .then(function success(succ){
+          $scope.itemsn = succ.data;
+          console.log(succ.data,"Success");
+        },
+        function error(err){
 
-    $scope.itemsn = [
-      {name: 'Application form for Certification Marks Licence',
-        url: 'http://pakalerts.net/file/feedback.doc'
-      },
-      {
-        name: 'Application for grant of licence ',
-        url: 'http://www.psqca.com.pk/downloads//Download 3-2011/Form I.pdf'
-      },
-      {
-        name: 'Self evaluation-cum-declaration for licence',
-        url: 'http://www.psqca.com.pk/downloads/Download 3-2011/Form II.pdf'
-      },
-      {
-        name: 'Application for renewal of licence',
-        url: 'http://www.psqca.com.pk/downloads/Download 3-2011/Form IV.pdf'
-      },
-      {
-        name: 'SROs and Gazette Notifications',
-        url: 'http://www.psqca.com.pk/downloads/PSQCA-SRO.pdf'
-      },
-      {
-        name: 'Application Form for Registration of Inspection Agency',
-        url: 'http://www.psqca.com.pk/downloads/PSQCA-App-form-inspec-agencies.pdf'
-      },
-      {
-        name: 'Documents Required',
-        url: 'http://www.psqca.com.pk/downloads/test2/Download/2016/June/Import export/DOCUMENTS_REQUIRED.doc'
-      },
-      {
-        name: 'Complete Information of Consignee',
-        url: 'http://www.psqca.com.pk/downloads/test2/Download/2016/June/Import export/complete_information_of_consignee.doc'
-      }
+          console.log(err,"Error");
 
+        });
 
-    ];
   $scope.success = function() {
       $ionicPopup.show({
         template: '<p> File Download Successfully In Phone Storage PSQCA Folder </p>',

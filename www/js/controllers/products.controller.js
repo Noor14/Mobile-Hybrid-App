@@ -18,10 +18,14 @@
     $scope.item = {
       select : $scope.select
     };
-    $http.get('js/data.json').success(function(response){
+    $http.get('http://pakalerts.net/mail/search.php')
+      .then(function success(succ){
+        $scope.data = succ.data;
+        console.log(succ.data,"Success");
+      },
+    function error(err){
 
-      $scope.data = response;
-      console.log($scope.data.length,"mg");
+      console.log(err,"Error");
 
     });
     $scope.searchData=[];
@@ -33,10 +37,10 @@
 
       $scope.searchData=[];
       for (var i = 0; i < $scope.data.length; i++) {
-        var product = $scope.data[i].ProductByDivision.toLowerCase();
-        var category = $scope.data[i].ProductCategoryPSS.toLowerCase();
-        var licenseNo = $scope.data[i].LicenseNo.toLowerCase();
-        var unitName = $scope.data[i].UnitName.toLowerCase();
+        var product = $scope.data[i].Product_as_Provided_By_Division.toLowerCase();
+        var category = $scope.data[i].Product_Category_as_per_PSS.toLowerCase();
+        var licenseNo = $scope.data[i].License_No.toLowerCase();
+        var unitName = $scope.data[i].Unit_Name.toLowerCase();
         var brand = $scope.data[i].Brand.toLowerCase();
 
 
@@ -67,7 +71,7 @@
     $scope.match = function(obj){
       $scope.searchData.length="";
       for (var j=0; j < $scope.data.length; j++ ){
-        var licenseNo = $scope.data[j].LicenseNo;
+        var licenseNo = $scope.data[j].License_No;
 
         if(licenseNo==obj){
 

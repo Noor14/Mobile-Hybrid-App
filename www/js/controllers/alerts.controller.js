@@ -1,9 +1,9 @@
 (function () {
   angular.module('psqca')
     .controller('AlertsController', alertsCtrl);
-  alertsCtrl.$inject = ['$scope', '$state' , '$ionicHistory'];
+  alertsCtrl.$inject = ['$scope', '$state' , '$ionicHistory','$http'];
 
-  function alertsCtrl($scope, $state ,$ionicHistory) {
+  function alertsCtrl($scope, $state ,$ionicHistory, $http) {
     $scope.myGoBack = function() {
       $ionicHistory.goBack();
     };
@@ -14,5 +14,18 @@
 
 
     };
+
+    $http.get('http://pakalerts.net/mail/newsitem.php')
+      .then(function success(succ){
+          $scope.newsitem = succ.data;
+          console.log(succ.data,"Success");
+        },
+        function error(err){
+
+          console.log(err,"Error");
+
+        });
+
+
   }
 })();

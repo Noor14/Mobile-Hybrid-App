@@ -34,7 +34,8 @@ angular.module('psqca', ['ionic', 'LocalStorageModule','ngCordova','ngCookies'])
       .state('welcome', {
         url: '/welcome',
         templateUrl: 'templates/welcome.html',
-        controller: 'WelcomeController'
+        controller: 'WelcomeController',
+        cache : false
       })
       .state('download', {
         url: '/download',
